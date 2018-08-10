@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{723CC3E9-5D19-4B09-8C14-319E0A91DC74}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfusedDevelopProject.Admin", "Web\ConfusedDevelopProject.Admin\ConfusedDevelopProject.Admin.csproj", "{C44A29CE-556E-473F-A8CC-653CF207A95E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfusedDevelopProject.Web", "Web\ConfusedDevelopProject.Admin\ConfusedDevelopProject.Web.csproj", "{C44A29CE-556E-473F-A8CC-653CF207A95E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
