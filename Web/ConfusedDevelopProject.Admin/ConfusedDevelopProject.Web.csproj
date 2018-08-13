@@ -246,6 +246,20 @@
     <None Include="Project_Readme.html" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Application\ConfusedDevelopProject.Services\ConfusedDevelopProject.Services.csproj">
+      <Project>{a4b51107-d157-4b4a-9ffc-bf31f5bfe06e}</Project>
+      <Name>ConfusedDevelopProject.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\ConfusedDevelopProject.Core\ConfusedDevelopProject.Core.csproj">
+      <Project>{20c49219-59ec-45ca-ad8f-c17f22de7c5a}</Project>
+      <Name>ConfusedDevelopProject.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\ConfusedDevelopProject.Data\ConfusedDevelopProject.Data.csproj">
+      <Project>{8b2c3d74-7a96-42fc-b170-c6026f6454a9}</Project>
+      <Name>ConfusedDevelopProject.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

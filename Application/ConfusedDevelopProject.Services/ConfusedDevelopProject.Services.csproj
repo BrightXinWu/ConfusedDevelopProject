@@ -80,6 +80,20 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CommonClassLibrary\CommonLibrary\CommonLibrary.csproj">
+      <Project>{eaea4c47-4407-4dbd-b8d7-da00491e92e1}</Project>
+      <Name>CommonLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\ConfusedDevelopProject.Core\ConfusedDevelopProject.Core.csproj">
+      <Project>{20c49219-59ec-45ca-ad8f-c17f22de7c5a}</Project>
+      <Name>ConfusedDevelopProject.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Data\ConfusedDevelopProject.Data\ConfusedDevelopProject.Data.csproj">
+      <Project>{8b2c3d74-7a96-42fc-b170-c6026f6454a9}</Project>
+      <Name>ConfusedDevelopProject.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
