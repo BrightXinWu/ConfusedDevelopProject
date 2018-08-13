@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ConfusedDevelopProject.Core.DbContexts
+namespace ConfusedDevelopProject.Core
 {
     /// <summary>
     /// DB上下文接口

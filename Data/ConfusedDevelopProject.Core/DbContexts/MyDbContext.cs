@@ -10,7 +10,7 @@ using System.Linq;
 using System.Reflection;
 using System.Web;
 
-namespace ConfusedDevelopProject.Core.DbContexts
+namespace ConfusedDevelopProject.Core
 {
     /// <summary>
     /// 工作单元上下文

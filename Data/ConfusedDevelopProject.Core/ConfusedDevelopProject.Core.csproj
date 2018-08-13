@@ -87,11 +87,15 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Data\IRepository.cs" />
+    <Compile Include="Data\Repository.cs" />
     <Compile Include="DbContexts\IDbContext.cs" />
     <Compile Include="DbContexts\IUnitOfWork.cs" />
     <Compile Include="DbContexts\MyDbContext.cs" />
+    <Compile Include="DbHelper\SqlHelper.cs" />
     <Compile Include="Domain\Model\BaseDbEntity.cs" />
     <Compile Include="Domain\Model\BaseEntity.cs" />
+    <Compile Include="Extensions\SqlExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
