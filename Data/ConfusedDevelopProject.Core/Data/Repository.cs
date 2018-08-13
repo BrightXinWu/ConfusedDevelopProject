@@ -8,6 +8,9 @@ using System.Web;
 
 namespace ConfusedDevelopProject.Core
 {
+    /// <summary>
+    /// 工作单元仓储
+    /// </summary>
     public partial class Repository : IRepository
     {
         #region 声明

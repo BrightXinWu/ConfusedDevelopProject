@@ -92,6 +92,7 @@
     <Compile Include="DbContexts\IDbContext.cs" />
     <Compile Include="DbContexts\IUnitOfWork.cs" />
     <Compile Include="DbContexts\MyDbContext.cs" />
+    <Compile Include="DbHelper\ModelConvertHelper.cs" />
     <Compile Include="DbHelper\SqlHelper.cs" />
     <Compile Include="Domain\Model\BaseDbEntity.cs" />
     <Compile Include="Domain\Model\BaseEntity.cs" />

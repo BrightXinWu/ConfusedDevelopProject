@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ConfusedDevelopProject.Core
 {
+    /// <summary>
+    /// 仓储接口
+    /// </summary>
     public interface IRepository : IDisposable
     {
         /// <summary>
