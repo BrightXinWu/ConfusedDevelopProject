@@ -196,6 +196,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\Jquery_ajax_extention.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -258,6 +259,10 @@
     <ProjectReference Include="..\..\Data\ConfusedDevelopProject.Data\ConfusedDevelopProject.Data.csproj">
       <Project>{8b2c3d74-7a96-42fc-b170-c6026f6454a9}</Project>
       <Name>ConfusedDevelopProject.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConfusedDevelopProject.WebApi\ConfusedDevelopProject.WebApi.csproj">
+      <Project>{ab77619a-4ddf-4381-a774-cf8b44e9201b}</Project>
+      <Name>ConfusedDevelopProject.WebApi</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLibrary", "CommonClas
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfusedDevelopProject.Services", "Application\ConfusedDevelopProject.Services\ConfusedDevelopProject.Services.csproj", "{A4B51107-D157-4B4A-9FFC-BF31F5BFE06E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfusedDevelopProject.WebApi", "Web\ConfusedDevelopProject.WebApi\ConfusedDevelopProject.WebApi.csproj", "{AB77619A-4DDF-4381-A774-CF8B44E9201B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{A4B51107-D157-4B4A-9FFC-BF31F5BFE06E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A4B51107-D157-4B4A-9FFC-BF31F5BFE06E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A4B51107-D157-4B4A-9FFC-BF31F5BFE06E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB77619A-4DDF-4381-A774-CF8B44E9201B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB77619A-4DDF-4381-A774-CF8B44E9201B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB77619A-4DDF-4381-A774-CF8B44E9201B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB77619A-4DDF-4381-A774-CF8B44E9201B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,5 +63,6 @@ Global
 		{20C49219-59EC-45CA-AD8F-C17F22DE7C5A} = {84C44D96-C877-4139-906C-55AE2F563309}
 		{EAEA4C47-4407-4DBD-B8D7-DA00491E92E1} = {0B0A0D47-15E9-44BB-BEF4-B347A0AF59F5}
 		{A4B51107-D157-4B4A-9FFC-BF31F5BFE06E} = {076AE7BD-9ACF-48F3-9B54-B8484A803530}
+		{AB77619A-4DDF-4381-A774-CF8B44E9201B} = {723CC3E9-5D19-4B09-8C14-319E0A91DC74}
 	EndGlobalSection
 EndGlobal
