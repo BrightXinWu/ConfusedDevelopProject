@@ -1,10 +1,14 @@
-﻿using System;
+﻿using CommonLibrary;
+using ConfusedDevelopProject.Core;
+using ConfusedDevelopProject.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Security;
+using Unity;
 
 namespace ConfusedDevelopProject.WebApi
 {
@@ -55,8 +59,20 @@ namespace ConfusedDevelopProject.WebApi
             string strUser = strTicket.Substring(0, index);
             string strPwd = strTicket.Substring(index + 1);
             //TODO 验证用户名和密码
-            if (strUser == "" && strPwd == "")
+            var container = new UnityContainer();
+            var repository = container.Resolve<IRepository>();
+            //用户信息
+            var userInfo = repository.FirstOrDefault<CDP_User>(m => m.Id == strUser);
+            //密码信息
+            var pwdInfo = repository.FirstOrDefault<Sys_UserLogOn>(m => m.UserId == strUser);
+            //密码加密之后的信息
+            var pwd = Encrypt.Encode(strPwd);
+            if (userInfo != null && pwdInfo != null && pwdInfo.UserPassword == pwd)
             {
+                container.Resolve<IUserContext>().WorkUserInfo = new UserInfo
+                {
+                    UserId = strUser
+                };
                 return true;
             }
             else

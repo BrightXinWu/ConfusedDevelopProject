@@ -1,0 +1,148 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link href="~/Content/framework-login.css" rel="stylesheet" />
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="logo">
+                <i class="fa fa-modx"></i>
+                <h1><span>Chloe</span>后台登录</h1>
+            </div>
+            <form class="form">
+                <div class="row">
+                    <input id="txt_account" type="text" placeholder="用户名/手机号/邮箱">
+                    <i class="fa fa-user"></i>
+                </div>
+                <div class="row">
+                    <input id="txt_password" type="password" placeholder="登录密码">
+                    <i class="fa fa-key"></i>
+                </div>
+                <div class="row">
+                    <input id="txt_code" maxlength="4" type="text" placeholder="验证码" style="width: 190px; float: left;">
+                    <div style="width: 110px; float: right; padding-top: 14px; padding-left: 14px;">
+                        看不清？<a id="switchCode" href="javascript:void();" style="text-decoration: none;">换一张</a>
+                        <img id="imgcode" class="authcode" src="@this.Href("~/Login/VerifyCode")" width=" 80" height="25" />
+                    </div>
+                </div>
+                <div class="row">
+                    <button id="login_button" type="button"><span>登录</span></button>
+                </div>
+                <div class="row">
+                </div>
+            </form>
+            <div class="login_tips"></div>
+        </div>
+    </div>
+    <script type="text/javascript">
+       
+        (function ($) {
+            $.login = {
+                formMessage: function (msg) {
+                    $('.login_tips').find('.tips_msg').remove();
+                    $('.login_tips').append('<div class="tips_msg"><i class="fa fa-question-circle"></i>' + msg + '</div>');
+                },
+                loginClick: function () {               
+                    var $userName = $("#txt_account");
+                    var $password = $("#txt_password");
+                    var $code = $("#txt_code");
+                    if ($userName.val() == "") {
+                        $userName.focus();
+                        $.login.formMessage('请输入用户名/手机号/邮箱。');
+                        return false;
+                    } else if ($password.val() == "") {
+                        $password.focus();
+                        $.login.formMessage('请输入登录密码。');
+                        return false;
+                    }
+                    else if ($code.val() == "") {
+                        $code.focus();
+                        $.login.formMessage('请输入验证码。');
+                        return false;
+                    }
+                    else {
+                        $("#login_button").attr('disabled', 'disabled').find('span').html("loading...");
+                        var params = { userName: $.trim($userName.val()), password: $.trim($password.val()), verifyCode: $.trim($code.val()) };
+                        $.ajax({
+                            url: "/Login/LoginVerification",
+                            data: params,
+                            type: "post",
+                            dataType: "json",
+                            success: function (data) {
+                                if (data.Succeed) {
+                                    $("#login_button").find('span').html("登录成功，正在跳转...");
+                                    window.setTimeout(function () {
+                                        var returnUrl = $ace.getQueryParam("returnUrl");
+                                        if (returnUrl)
+                                            window.location.href = returnUrl;
+                                        else
+                                            window.location.href = "~/";
+                                    }, 500);
+                                } else {
+                                    $("#login_button").removeAttr('disabled').find('span').html("登录");
+                                    $("#switchCode").trigger("click");
+                                    $code.val('');
+                                    $.login.formMessage(data.Data);
+                                }
+                            }
+                        });
+                    }
+                },
+                init: function () {
+                    $('.wrapper').height($(window).height());
+                    $(".container").css("margin-top", ($(window).height() - $(".container").height()) / 2 - 50);
+                    $(window).resize(function (e) {
+                        $('.wrapper').height($(window).height());
+                        $(".container").css("margin-top", ($(window).height() - $(".container").height()) / 2 - 50);
+                    });
+                    $("#switchCode").click(function () {
+                        $("#imgcode").attr("src", "@this.Url.Content("~/Login/VerifyCode?t=")" + Math.random());
+                    });
+                    //var login_error = top.$.cookie('nfine_login_error');
+                    //if (login_error != null) {
+                    //    switch (login_error) {
+                    //        case "overdue":
+                    //            $.login.formMessage("系统登录已超时,请重新登录");
+                    //            break;
+                    //        case "OnLine":
+                    //            $.login.formMessage("您的帐号已在其它地方登录,请重新登录");
+                    //            break;
+                    //        case "-1":
+                    //            $.login.formMessage("系统未知错误,请重新登录");
+                    //            break;
+                    //    }
+                    //    top.$.cookie('nfine_login_error', '', { path: "/", expires: -1 });
+                    //}
+
+                    $("#txt_account").focus();
+
+                    $("#login_button").click(function () {
+                        $.login.loginClick();
+                    });
+                    document.onkeydown = function (e) {
+                        if (!e) e = window.event;
+                        if ((e.keyCode || e.which) == 13) {
+                            document.getElementById("login_button").focus();
+                            document.getElementById("login_button").click();
+                        }
+                    }
+                }
+            };
+            $(function () {
+                $.login.init();
+            });
+        })(jQuery);
+    </script>
+</body>
+</html>

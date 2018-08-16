@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ConfusedDevelopProject.Core
+namespace ConfusedDevelopProject.Data
 {
     /// <summary>
     /// 模型基类

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ConfusedDevelopProject.Data;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Common;
@@ -29,11 +30,20 @@ namespace ConfusedDevelopProject.Core
             modelBuilder.Conventions.Remove<ComplexTypeAttributeConvention>();
 
             var mapType = typeof(MyDbContext);
-            var configuageTypeList = Assembly.GetAssembly(mapType).GetTypes().Where(configuageType =>
+
+            //DLL所在的绝对路径 
+            Assembly assembly = Assembly.Load("ConfusedDevelopProject.Data");
+            //注意写法：程序集.类名  
+            //Type type = assembly.GetTypes
+
+            var ss = Assembly.GetAssembly(mapType).GetTypes().Where(configuageType =>
+                configuageType.BaseType != null);
+
+            var configuageTypeList = assembly.GetTypes().Where(configuageType =>
                 configuageType.BaseType != null
                 && configuageType.BaseType.IsGenericType
                 && configuageType.BaseType.GetGenericTypeDefinition()
-                == typeof(EntityTypeConfiguration<>));
+                == typeof(BaseDBEntityMap<>));
             foreach (var type in configuageTypeList)
             {
                 dynamic instanceItem = Activator.CreateInstance(type);

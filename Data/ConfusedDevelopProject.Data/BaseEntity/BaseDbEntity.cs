@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace ConfusedDevelopProject.Core.Domain.Model
+namespace ConfusedDevelopProject.Data
 {
     /// <summary>
     /// DB模型基类
     /// </summary>
-    public abstract class BaseDbEntity
+    public abstract class BaseDbEntity : BaseEntity
     {
         #region Properties
         /// <summary>

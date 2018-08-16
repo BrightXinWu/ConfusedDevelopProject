@@ -16,14 +16,14 @@ namespace ConfusedDevelopProject.Core
         #region 声明
 
 
-        private readonly MyDbContext _context;
+        private readonly IDbContext _context;
 
 
         #endregion
 
         #region 注入
 
-        public Repository(MyDbContext context)
+        public Repository(IDbContext context)
         {
             this._context = context;
         }

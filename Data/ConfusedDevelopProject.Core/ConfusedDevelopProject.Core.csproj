@@ -94,14 +94,22 @@
     <Compile Include="DbContexts\MyDbContext.cs" />
     <Compile Include="DbHelper\ModelConvertHelper.cs" />
     <Compile Include="DbHelper\SqlHelper.cs" />
-    <Compile Include="Domain\Model\BaseDbEntity.cs" />
-    <Compile Include="Domain\Model\BaseEntity.cs" />
+    <Compile Include="Domain\Model\ResultInfo.cs" />
+    <Compile Include="Domain\Model\UserInfo.cs" />
+    <Compile Include="Extensions\BaseDBEntityExtend.cs" />
     <Compile Include="Extensions\SqlExtension.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserContext\IUserContext.cs" />
+    <Compile Include="UserContext\UserContext.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Domain\Entities\" />
     <Folder Include="Domain\Enums\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ConfusedDevelopProject.Data\ConfusedDevelopProject.Data.csproj">
+      <Project>{8b2c3d74-7a96-42fc-b170-c6026f6454a9}</Project>
+      <Name>ConfusedDevelopProject.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

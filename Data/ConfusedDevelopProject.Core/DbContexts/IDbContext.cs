@@ -78,5 +78,13 @@ namespace ConfusedDevelopProject.Core
         /// <param name="original">旧对象</param>
         /// <param name="current">当前对象</param>
         void ApplyCurrentValues<TEntity>(TEntity original, TEntity current) where TEntity : class;
+        /// <summary>
+        /// update data by columns.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="model"></param>
+        /// <param name="updateColumns"></param>
+        /// <returns></returns>
+        int Update<T>(T model, params string[] updateColumns) where T : class;
     }
 }
