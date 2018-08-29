@@ -18,7 +18,7 @@
         <div class="container">
             <div class="logo">
                 <i class="fa fa-modx"></i>
-                <h1><span>Chloe</span>后台登录</h1>
+                <h1><span>CDP</span>后台登录</h1>
             </div>
             <form class="form">
                 <div class="row">
@@ -83,7 +83,7 @@
                                 if (data.Succeed) {
                                     $("#login_button").find('span').html("登录成功，正在跳转...");
                                     window.setTimeout(function () {
-                                        var returnUrl = $ace.getQueryParam("returnUrl");
+                                        var returnUrl = "/Home/Index?ticket=" + data.Ticket;
                                         if (returnUrl)
                                             window.location.href = returnUrl;
                                         else

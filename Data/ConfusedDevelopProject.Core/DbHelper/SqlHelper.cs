@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Configuration;
@@ -586,6 +587,57 @@ namespace ConfusedDevelopProject.Core
         }
         #endregion
 
+        /// <summary>
+        /// sql返回查询列表
+        /// </summary>
+        /// <typeparam name="TEntity">model</typeparam>
+        /// <param name="sql">sql</param>
+        /// <param name="param">参数 </param>
+        /// <returns></returns>
+        public static IEnumerable<TEntity> GetModelList<TEntity>(string sql,object param = null)
+        {
+            using (var conn = new SqlConnection(ConnectionStringLocalTransaction))
+            {
+                conn.Open();
+                var data = conn.Query<TEntity>(sql, param);
+                conn.Close();
+                return data;
+            }
+        }
+
+        /// <summary>
+        /// sql返回查询单条数据
+        /// </summary>
+        /// <typeparam name="TEntity">model</typeparam>
+        /// <param name="sql">sql</param>
+        /// <param name="param">参数 </param>
+        /// <returns></returns>
+        public static TEntity GetModelSingle<TEntity>(string sql, object param = null)
+        {
+            using (var conn = new SqlConnection(ConnectionStringLocalTransaction))
+            {
+                conn.Open();
+                var data = conn.QueryFirst<TEntity>(sql, param);
+                conn.Close();
+                return data;
+            }
+        }
+
+        /// <summary>
+        /// 增、删、改 操作数据库条数
+        /// </summary>
+        /// <param name="sql">sql语句</param>
+        /// <param name="param">参数</param>
+        /// <returns></returns>
+        public static int? OperateNumber(string sql, object param = null)
+        {
+            using (var conn = new SqlConnection(ConnectionStringLocalTransaction))
+            {
+                conn.Open();
+                var data = conn.Execute(sql, param);
+                return data;
+            }
+        }
 
     }
 }

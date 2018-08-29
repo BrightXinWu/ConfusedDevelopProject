@@ -1,31 +1,801 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+<link href="~/Content/style.css" rel="stylesheet" />
+@*<div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <div class="row">
+        <div class="col-md-4">
+            <h2>Getting started</h2>
+            <p>
+                ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
+                enables a clean separation of concerns and gives you full control over markup
+                for enjoyable, agile development.
+            </p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Get more libraries</h2>
+            <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+        </div>
+        <div class="col-md-4">
+            <h2>Web Hosting</h2>
+            <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
+            <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
+        </div>
+    </div>*@
+
+<header class="am-topbar admin-header">
+    <div class="am-topbar-brand"><img src="~/assets/i/logo.png"></div>
+
+    <div class="am-collapse am-topbar-collapse" id="topbar-collapse">
+        <div class="list" id="navlist">
+
+
+            <ul class="am-nav am-nav-pills am-topbar-nav admin-header-list">
+                <li class="kuanjie" style="margin-right:20px">
+
+                    @*<a href="#">会员管理</a>
+                        <a href="#">奖金管理</a>
+                        <a href="#">订单管理</a>
+                        <a href="#">产品管理</a>*@
+                    <div class="bar">
+                        <a class="btn-headermenu" href="#">个人中心</a>
+                        <div class="popup-layer" id="navbox" style="display: none;">
+                            <ul class="cont">
+                                <li class="users"> <a href="#" class="personal-data" style="text-align: center;display:inline "> 个人资料</a> </li>
+                                <li class="users"> <a href="#myModal" class="update" style="text-align: center;display:inline "> 修改密码</a> </li>
+                                <li class="users"> <a href="#" class="out" style="text-align: center;display:inline "> 退出登录</a> </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+
+                @*<li class="soso">
+
+                        <p>
+
+                            <select data-am-selected="{btnWidth: 70, btnSize: 'sm', btnStyle: 'default'}">
+                                <option value="b">全部</option>
+                                <option value="o">产品</option>
+                                <option value="o">会员</option>
+
+                            </select>
+
+                        </p>
+
+                        <p class="ycfg"><input type="text" class="am-form-field am-input-sm" placeholder="圆角表单域" /></p>
+                        <p><button class="am-btn am-btn-xs am-btn-default am-xiao"><i class="am-icon-search"></i></button></p>
+                    </li>
+
+
+
+
+                    <li class="am-hide-sm-only" style="float: right;"><a href="javascript:;" id="admin-fullscreen"><span class="am-icon-arrows-alt"></span> <span class="admin-fullText">开启全屏</span></a></li>*@
+            </ul>
+        </div>
+
+    </div>
+    <div class="theme-popover" style="background-color:#faf5f5">
+        <div class="theme-popbod dform">
+            <form class="form-horizontal" name="loginform" action="" method="post">
+
+                <div class="control-group">
+                    <label class="control-label" for="inputEmail">新的密码：</label>
+                    <div class="controls">
+                        <input type="password" id="newPassword">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="inputPassword">确认密码：</label>
+                    <div class="controls">
+                        <input type="password" id="inputPassword">
+                    </div>
+                </div>
+                <div class="control-group">
+                    <div class="controls">
+                        <input type="button" class="btn-block" value="提交" />
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</header>
+
+<div class="am-cf admin-main">
+
+    <div class="nav-navicon admin-main admin-sidebar">
+
+
+        <div class="sideMenu am-icon-dashboard" style="color:#aeb2b7; margin: 10px 0 0 0;"> 欢迎 @ViewBag.RealName</div>
+        <div class="sideMenu">
+            <h3 class="am-icon-flag"><em></em> <a href="#">人员管理</a></h3>
+            <ul>
+                <li>人员列表</li>
+            </ul>
+
+            @*<h3 class="am-icon-flag"><em></em> <a href="#">商品管理</a></h3>
+                <ul>
+                    <li><a href="">商品列表</a></li>
+                    <li class="func" dataType='html' dataLink='msn.htm' iconImg='images/msn.gif'>添加新商品</li>
+                    <li>商品分类</li>
+                    <li>用户评论</li>
+                    <li>商品回收站</li>
+                    <li>库存管理 </li>
+                </ul>
+                <h3 class="am-icon-cart-plus"><em></em> <a href="#"> 订单管理</a></h3>
+                <ul>
+                    <li>订单列表</li>
+                    <li>合并订单</li>
+                    <li>订单打印</li>
+                    <li>添加订单</li>
+                    <li>发货单列表</li>
+                    <li>换货单列表</li>
+                </ul>
+                <h3 class="am-icon-users"><em></em> <a href="#">会员管理</a></h3>
+                <ul>
+                    <li>会员列表 </li>
+                    <li>未激活会员</li>
+                    <li>团队系谱图</li>
+                    <li>会员推荐图</li>
+                    <li>推荐列表</li>
+                </ul>
+                <h3 class="am-icon-volume-up"><em></em> <a href="#">信息通知</a></h3>
+                <ul>
+                    <li>站内消息 /留言 </li>
+                    <li>短信</li>
+                    <li>邮件</li>
+                    <li>微信</li>
+                    <li>客服</li>
+                </ul>
+                <h3 class="am-icon-gears"><em></em> <a href="#">系统设置</a></h3>
+                <ul>
+                    <li>数据备份</li>
+                    <li>邮件/短信管理</li>
+                    <li>上传/下载</li>
+                    <li>权限</li>
+                    <li>网站设置</li>
+                    <li>第三方支付</li>
+                    <li>提现 /转账 出入账汇率</li>
+                    <li>平台设置</li>
+                    <li>声音文件</li>
+                </ul>*@
+        </div>
+        <!-- sideMenu End -->
+
+        <script type="text/javascript">
+			jQuery(".sideMenu").slide({
+				titCell:"h3", //鼠标触发对象
+				targetCell:"ul", //与titCell一一对应，第n个titCell控制第n个targetCell的显示隐藏
+				effect:"slideDown", //targetCell下拉效果
+				delayTime:300 , //效果时间
+				triggerTime:150, //鼠标延迟触发时间（默认150）
+				defaultPlay:true,//默认是否执行效果（默认true）
+				returnDefault:true //鼠标从.sideMen移走后返回默认状态（默认false）
+				});
+        </script>
+
+
+
+
+
+
+
+
+    </div>
+
+    <div class=" admin-content">
+
+        <div class="daohang">
+            <ul>
+                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs"> 首页 </li>
+                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">帮助中心<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">奖金管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+                <li><button type="button" class="am-btn am-btn-default am-radius am-btn-xs">产品管理<a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close="">×</a></button></li>
+            </ul>
+        </div>
+
+        <div class="admin">
+            <table id="userlist" class="table table-striped">
+
+                @*<thead>
+                        <tr>
+                            <th data-field="state" data-checkbox="true"></th>
+                            <th data-align="center" data-field="RowNumber" class="col-sm-1">序号</th>
+                            <th data-field="UserName">账户</th>
+                            <th data-formatter="operateBtn" data-events="operateEvents" data-field="RealName" class="col-md-2">姓名</th>
+                            <th data-field="Gender">性别</th>
+                            <th data-field="Birthday">生日</th>
+                            <th data-field="MobilePhone">手机</th>
+                            <th data-field="Email">邮箱</th>
+                            <th data-field="WeChat">微信</th>
+                        </tr>
+                    </thead>*@
+            </table>
+            <div class="admin-index">
+                <dl data-am-scrollspy="{animation: 'slide-right', delay: 100}">
+                    <dt class="qs"><i class="am-icon-users"></i></dt>
+                    <dd>455</dd>
+                    <dd class="f12">团队数量</dd>
+                </dl>
+                <dl data-am-scrollspy="{animation: 'slide-right', delay: 300}">
+                    <dt class="cs"><i class="am-icon-area-chart"></i></dt>
+                    <dd>455</dd>
+                    <dd class="f12">今日收入</dd>
+                </dl>
+                <dl data-am-scrollspy="{animation: 'slide-right', delay: 600}">
+                    <dt class="hs"><i class="am-icon-shopping-cart"></i></dt>
+                    <dd>455</dd>
+                    <dd class="f12">商品数量</dd>
+                </dl>
+                <dl data-am-scrollspy="{animation: 'slide-right', delay: 900}">
+                    <dt class="ls"><i class="am-icon-cny"></i></dt>
+                    <dd>455</dd>
+                    <dd class="f12">全部收入</dd>
+                </dl>
+            </div>
+            <div class="admin-biaoge">
+                <div class="xinxitj">信息概况</div>
+                <table class="am-table">
+                    <thead>
+                        <tr>
+                            <th>团队统计</th>
+                            <th>全部会员</th>
+                            <th>全部未激活</th>
+                            <th>今日新增</th>
+                            <th>今日未激活</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>普卡</td>
+                            <td>普卡</td>
+                            <td><a href="#">4534</a></td>
+                            <td>+20</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>银卡</td>
+                            <td>银卡</td>
+                            <td>4534</td>
+                            <td>+2</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>金卡</td>
+                            <td>金卡</td>
+                            <td>4534</td>
+                            <td>+10</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>钻卡</td>
+                            <td>钻卡</td>
+                            <td>4534</td>
+                            <td>+50</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>合计</td>
+                            <td>合计</td>
+                            <td>4534</td>
+                            <td>+50</td>
+                            <td> 4534 </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="am-table">
+                    <thead>
+                        <tr>
+                            <th>团队统计</th>
+                            <th>全部会员</th>
+                            <th>全部未激活</th>
+                            <th>今日新增</th>
+                            <th>今日未激活</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>普卡</td>
+                            <td>普卡</td>
+                            <td>4534</td>
+                            <td>+50</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>银卡</td>
+                            <td>银卡</td>
+                            <td>4534</td>
+                            <td>+2</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>金卡</td>
+                            <td>金卡</td>
+                            <td>4534</td>
+                            <td>+10</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>钻卡</td>
+                            <td>钻卡</td>
+                            <td>4534</td>
+                            <td>+50</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>合计</td>
+                            <td>合计</td>
+                            <td>4534</td>
+                            <td>+50</td>
+                            <td> 4534 </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table class="am-table">
+                    <thead>
+                        <tr>
+                            <th>资金统计</th>
+                            <th>账户总收入</th>
+                            <th>账户总支出</th>
+                            <th>账户余额</th>
+                            <th>今日收入</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>普卡</td>
+                            <td>普卡</td>
+                            <td>4534</td>
+                            <td>+20</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>银卡</td>
+                            <td>银卡</td>
+                            <td>4534</td>
+                            <td>+2</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>金卡</td>
+                            <td>金卡</td>
+                            <td>4534</td>
+                            <td>+10</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>钻卡</td>
+                            <td>钻卡</td>
+                            <td>4534</td>
+                            <td>+50</td>
+                            <td> 4534 </td>
+                        </tr>
+                        <tr>
+                            <td>合计</td>
+                            <td>合计</td>
+                            <td>4534</td>
+                            <td>+50</td>
+                            <td> 4534 </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="shuju">
+                <div class="shujuone">
+                    <dl>
+                        <dt>全盘收入：  1356666</dt>
+                        <dt>全盘支出：   5646465.98</dt>
+                        <dt>全盘利润：  546464</dt>
+                    </dl>
+                    <ul>
+                        <h2>26.83%</h2>
+                        <li>全盘拨出</li>
+                    </ul>
+                </div>
+                <div class="shujutow">
+                    <dl>
+                        <dt>全盘收入：  1356666</dt>
+                        <dt>全盘支出：   5646465.98</dt>
+                        <dt>全盘利润：  546464</dt>
+                    </dl>
+                    <ul>
+                        <h2>26.83%</h2>
+                        <li>全盘拨出</li>
+                    </ul>
+                </div>
+                <div class="slideTxtBox">
+                    <div class="hd">
+                        <ul>
+                            <li>其他信息</li>
+                            <li>工作进度表</li>
+                        </ul>
+                    </div>
+                    <div class="bd">
+                        <ul>
+                            <table width="100%" class="am-table">
+                                <tbody>
+                                    <tr>
+                                        <td width="7%" align="center">1 </td>
+                                        <td width="83%">工作进度名称</td>
+                                        <td width="10%" align="center"><a href="#">10%</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">1 </td>
+                                        <td>工作进度名称</td>
+                                        <td align="center"><a href="#">10%</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">1 </td>
+                                        <td>工作进度名称</td>
+                                        <td align="center"><a href="#">10%</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td align="center">1 </td>
+                                        <td>工作进度名称</td>
+                                        <td align="center"><a href="#">10%</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="center">1 </td>
+                                        <td>工作进度名称</td>
+                                        <td align="center"><a href="#">10%</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="center">1 </td>
+                                        <td>工作进度名称</td>
+                                        <td align="center"><a href="#">10%</a></td>
+                                    </tr>
+
+                                    <tr>
+                                        <td align="center">1 </td>
+                                        <td>工作进度名称</td>
+                                        <td align="center"><a href="#">10%</a></td>
+                                    </tr>
+
+
+
+
+
+
+
+
+                                </tbody>
+                            </table>
+                        </ul>
+                        <ul>
+                            <table class="am-table">
+                                <tbody>
+                                    <tr>
+                                        <td>普卡</td>
+                                        <td>普卡</td>
+                                        <td><a href="#">4534</a></td>
+                                        <td>+20</td>
+                                        <td> 4534 </td>
+                                    </tr>
+                                    <tr>
+                                        <td>银卡</td>
+                                        <td>银卡</td>
+                                        <td>4534</td>
+                                        <td>+2</td>
+                                        <td> 4534 </td>
+                                    </tr>
+                                    <tr>
+                                        <td>金卡</td>
+                                        <td>金卡</td>
+                                        <td>4534</td>
+                                        <td>+10</td>
+                                        <td> 4534 </td>
+                                    </tr>
+                                    <tr>
+                                        <td>钻卡</td>
+                                        <td>钻卡</td>
+                                        <td>4534</td>
+                                        <td>+50</td>
+                                        <td> 4534 </td>
+                                    </tr>
+                                    <tr>
+                                        <td>合计</td>
+                                        <td>合计</td>
+                                        <td>4534</td>
+                                        <td>+50</td>
+                                        <td> 4534 </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </ul>
+                    </div>
+                </div>
+                <script type="text/javascript">jQuery(".slideTxtBox").slide();</script>
+
+
+
+
+
+
+
+
+            </div>
+
+            <div class="foods">
+                <ul>版权所有@2015</ul>
+                <dl><a href="" title="返回头部" class="am-icon-btn am-icon-arrow-up"></a></dl>
+
+
+
+            </div>
+
+        </div>
+    </div>
+
 </div>
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+
+
+
+<script type="text/javascript">
+    $(function () {
+        //1.初始化Table
+        var oTable = new TableInit();
+        oTable.Init();
+
+    });
+    var TableInit = function () {
+        var oTableInit = new Object();
+        //初始化Table
+        oTableInit.Init = function () {
+            $("#userlist").bootstrapTable({
+                url: '/Home/GetUserTable',
+                method: 'get',
+                striped: true,
+                cache: true,
+                pagination: true,                   //是否显示分页（*）
+                //sortable: false,                     //是否启用排序
+                //sortOrder: "desc",                   //排序方式
+                queryParams: { PageNumber: 1, PageSize: 10 },
+                sidePagination: "server",           //分页方式：client客户端分页，server服务端分页（*）
+                //pageNumber: 1,                       //初始化加载第一页，默认第一页
+                //pageSize: 10,                       //每页的记录行数（*）
+                //pageList: [10, 25, 50, 100],        //可供选择的每页的行数（*）
+                search: true,                       //是否显示表格搜索，此搜索是客户端搜索，不会进服务端，所以，个人感觉意义不大
+                strictSearch: true,
+                showColumns: true,                  //是否显示所有的列
+                showRefresh: true,                  //是否显示刷新按钮
+                minimumCountColumns: 2,             //最少允许的列数
+                clickToSelect: true,                //是否启用点击选中行
+                height: 500,                        //行高，如果没有设置height属性，表格自动根据记录条数觉得表格高度
+                uniqueId: "Id",                     //每一行的唯一标识，一般为主键列
+                showToggle: true,                    //是否显示详细视图和列表视图的切换按钮
+                cardView: false,                    //是否显示详细视图
+                detailView: false,                  //是否显示父子表
+                dataType: "json",
+                //data: function (res) {
+                //    return res.Rows;
+                //},
+                columns: [{
+                    checkbox: false
+                }, {
+                    field: 'RowNumber',
+                    title: '序号'
+                }, {
+                    field: 'UserName',
+                    title: '账户'
+                }, {
+                    field: 'Gender',
+                    title: '性别'
+                }, {
+                    field: 'Birthday',
+                    title: '生日'
+                }, {
+                    field: 'MobilePhone',
+                    title: '手机'
+                }, {
+                    field: 'Email',
+                    title: '邮箱'
+                }, {
+                    field: 'WeChat',
+                    title: '微信'
+                }, ],
+                sPaginationType: "full_numbers", //分页，一共两种样式，full_numbers和two_button(默认)
+                oLanguage: {
+                    sLengthMenu: "每页显示 MENU 条记录",
+                    sZeroRecords: "对不起，查询不到任何相关数据",
+                    sInfo: "当前显示 START 到 END 条，共 TOTAL 条记录",
+                    sInfoEmtpy: "找不到相关数据",
+                    sInfoFiltered: "数据表中共为 MAX 条记录)",
+                    sProcessing: "正在加载中…",
+                    sSearch: "搜索",
+                    sUrl: "", //多语言配置文件，可将oLanguage的设置放在一个txt文件中，例：Javascript/datatable/dtCH.txt
+                    oPaginate: {
+                        sFirst: "第一页",
+                        sPrevious: "上一页 ",
+                        sNext: "下一页 ",
+                        sLast: "最后一页 "
+                    }
+                }
+            })
+        }
+        return oTableInit;
+    }
+
+    // 让对话框的标题支持html
+    $.widget("ui.dialog", $.extend({}, $.ui.dialog.prototype, {
+        _title: function (title) {
+            if (!this.options.title) {
+                title.html("&#160;");
+            } else {
+                title.html(this.options.title);
+            }
+        }
+    }));
+    //去除弹窗
+    function clearPwdInfo() {
+        $('#newPassword').val('');
+        $('#inputPassword').val('');
+        $('.ui-dialog-title').hide();
+        $('.theme-popover').dialog("close");
+    }
+    //个人中心弹出下拉菜单
+    jQuery(document).ready(function ($) {
+        $(document).click(function () {
+            $('.popup-layer').hide();
+            $('.btn-headermenu').removeAttr("style");
+            $('.btn-headermenu').removeClass('btn-active');
+        })
+        $('.btn-headermenu,.popup-layer').click(function (event) {
+            event.stopPropagation();
+        })//tonjay.com
+        $('.btn-headermenu').each(function () {
+            $(this).click(function () {
+                $(this).toggleClass('btn-active');
+                $(this).next().toggle();
+                $(this).next().next().toggle();
+                $(this).parent().siblings().find('.popup-layer,.btn-headermenu').hide();
+            })
+        })
+    })
+    //退出登录
+    $('.out').click(function () {
+        window.location.href = "/Login/Login";
+    })
+
+    //修改密码弹窗
+    $('.update').click(function () {
+        $('.ui-dialog-title').show();
+        $('.theme-popover').dialog({
+            autoOpen: true,
+            modal: true,
+            resizable: true,
+            zIndex: 2,
+            width: 300,
+            height: 200,
+            stack: true,
+            title_html: true,
+            title: "<div class='widget-header widget-header-small'><h4 class='smaller'>修改密码</h4></div>",
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close", $(this).parent()).hide();
+            }
+        });
+    });
+    //点击空白关闭弹窗
+    $(document).bind("click", function (e) {
+        if ($((e.target || e.srcElement)).closest(".theme-popover").length == 0) {
+            clearPwdInfo();
+        }
+    });
+    //修改密码按钮
+    $('.btn-block').click(function () {
+        var newPassword = $('#newPassword').val();
+        var inputPssword = $('#inputPassword').val();
+        if (newPassword != inputPssword) {
+            alert("密码不一致！");
+            clearPwdInfo();
+            return false;
+        }
+        var params = { password: newPassword, userId: '@ViewBag.Id' };
+        $.ajax({
+            url: "/Home/UpdatePwd",
+            data: params,
+            type: "post",
+            dataType: "json",
+            success: function (data) {
+                if (data.Succeed) {
+                    clearPwdInfo();
+                }
+                alert(data.Message);
+            }
+        })
+        
+    });
+</script>
+
+<style type="text/css">
+    .btn-headermenu {
+        line-height: 40px;
+        font-size: 12px;
+        text-decoration: none;
+        display: block;
+        left: 240px;
+        z-index: 2;
+    }
+
+        .btn-headermenu:hover {
+            background: #ddd;
+            color: #333;
+        }
+
+    .btn-active, .btn-active:hover {
+        background: #fff;
+        color: #333;
+        border-bottom: none;
+        position: relative;
+    }
+
+    .popup-layer {
+        height: 200px;
+        width: 300px;
+        padding: 10px;
+        background: #e1f5f1;
+        position: relative;
+        left: 0;
+        top: 50px;
+        box-shadow: 5px 5px 5px #ccc;
+        z-index: 1;
+    }
+
+    .cont {
+        width: 100%;
+        height: 100%;
+    }
+
+        .cont li {
+            width: 100%;
+            height: 20%;
+        }
+
+            .cont li a {
+                width: 100%;
+                height: 100%;
+            }
+
+    .theme-popover {
+        width: 150px;
+        height: 300px;
+        background-color: #d1f4f6;
+    }
+
+    .dform {
+        width: 100%;
+        height: 100%;
+    }
+
+    .form-horizontal {
+        width: 100%;
+        height: 100%;
+    }
+
+    .control-group {
+        width: 100%;
+        height: 33%;
+    }
+
+    .control-label, .controls {
+        float: left;
+    }
+
+    .ui-dialog-title {
+        width: 100%;
+        height: 100%;
+    }
+
+    .ui-helper-clearfix {
+        background-color: #e5fef0;
+    }
+</style>

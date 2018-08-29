@@ -56,22 +56,23 @@ namespace ConfusedDevelopProject.WebApi
 
             //从Ticket里面获取用户名和密码
             var index = strTicket.IndexOf("&");
-            string strUser = strTicket.Substring(0, index);
+            string strUserName = strTicket.Substring(0, index);
             string strPwd = strTicket.Substring(index + 1);
             //TODO 验证用户名和密码
             var container = new UnityContainer();
             var repository = container.Resolve<IRepository>();
             //用户信息
-            var userInfo = repository.FirstOrDefault<CDP_User>(m => m.Id == strUser);
+            var userInfo = repository.FirstOrDefault<CDP_User>(m => m.UserName == strUserName);
             //密码信息
-            var pwdInfo = repository.FirstOrDefault<Sys_UserLogOn>(m => m.UserId == strUser);
+            var pwdInfo = repository.FirstOrDefault<Sys_UserLogOn>(m => m.UserId == (userInfo != null ? userInfo.Id : ""));
             //密码加密之后的信息
             var pwd = Encrypt.Encode(strPwd);
             if (userInfo != null && pwdInfo != null && pwdInfo.UserPassword == pwd)
             {
                 container.Resolve<IUserContext>().WorkUserInfo = new UserInfo
                 {
-                    UserId = strUser
+                    UserId = userInfo.Id,
+                    RealName = userInfo.RealName
                 };
                 return true;
             }

@@ -232,20 +232,64 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\css\admin.css" />
+    <Content Include="assets\css\amazeui.css" />
+    <Content Include="assets\css\amazeui.flat.css" />
+    <Content Include="assets\css\amazeui.flat.min.css" />
+    <Content Include="assets\css\amazeui.min.css" />
+    <Content Include="assets\css\amazeui.mineeeee.css" />
+    <Content Include="assets\css\app.css" />
+    <Content Include="assets\css\echartsHome.css" />
+    <Content Include="assets\css\shop.css" />
+    <Content Include="assets\fonts\fontawesome-webfont.svg" />
+    <Content Include="assets\i\h_top.png" />
+    <Content Include="assets\i\icoAdd.png" />
+    <Content Include="assets\i\logo.png" />
+    <Content Include="assets\i\l_07.png" />
+    <Content Include="assets\js\amazeui.js" />
+    <Content Include="assets\js\amazeui.legacy.js" />
+    <Content Include="assets\js\amazeui.legacy.min.js" />
+    <Content Include="assets\js\amazeui.min.js" />
+    <Content Include="assets\js\amazeui.widgets.helper.js" />
+    <Content Include="assets\js\amazeui.widgets.helper.min.js" />
+    <Content Include="assets\js\app.js" />
+    <Content Include="assets\js\codemirror.js" />
+    <Content Include="assets\js\echartsExample.js" />
+    <Content Include="assets\js\handlebars.min.js" />
+    <Content Include="assets\js\jquery.jerichotab.min.js" />
+    <Content Include="assets\js\jquery.min.js" />
+    <Content Include="assets\js\polyfill\rem.min.js" />
+    <Content Include="assets\js\polyfill\respond.min.js" />
+    <Content Include="Content\bootstrap-responsive.css" />
+    <Content Include="Content\bootstrap-responsive.min.css" />
+    <Content Include="Content\bootstrap-table.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\framework-login.css" />
+    <Content Include="Content\images\glyphicons-halflings-white.png" />
+    <Content Include="Content\images\glyphicons-halflings.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\style.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap-table-zh-CN.js" />
+    <Content Include="Scripts\bootstrap-table.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="assets\fonts\fontawesome-webfont.eot" />
+    <Content Include="assets\fonts\fontawesome-webfont.ttf" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff" />
+    <Content Include="assets\fonts\fontawesome-webfont.woff2" />
+    <Content Include="assets\fonts\FontAwesome.otf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\include.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -293,6 +337,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Areas\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

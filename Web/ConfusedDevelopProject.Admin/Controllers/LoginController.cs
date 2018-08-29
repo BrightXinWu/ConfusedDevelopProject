@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Security;
 
 namespace ConfusedDevelopProject.Admin.Controllers
 {
@@ -49,9 +50,9 @@ namespace ConfusedDevelopProject.Admin.Controllers
         /// <summary>
         /// 登录验证
         /// </summary>
-        /// <param name="userName"></param>
-        /// <param name="password"></param>
-        /// <param name="verifyCode"></param>
+        /// <param name="userName">用户名</param>
+        /// <param name="password">密码</param>
+        /// <param name="verifyCode">验证码</param>
         /// <returns></returns>
         [HttpPost]
         public ActionResult LoginVerification(string userName, string password, string verifyCode)
@@ -75,9 +76,14 @@ namespace ConfusedDevelopProject.Admin.Controllers
             }
             else
             {
+                var ticket = new FormsAuthenticationTicket(0, userName, DateTime.Now,
+                            DateTime.Now.AddHours(1), true, string.Format("{0}&{1}", userName, password),
+                            FormsAuthentication.FormsCookiePath);
+                Session["UserName"] = userName;
                 return Json(new
                 {
-                    Succeed = data
+                    Succeed = data,
+                    Ticket = FormsAuthentication.Encrypt(ticket)
                 });
             }
             

@@ -10,7 +10,13 @@ namespace ConfusedDevelopProject.Core
     /// </summary>
     public class UserInfo
     {
+        /// <summary>
+        /// 用户Id
+        /// </summary>
         public string UserId { get; set; }
-
+        /// <summary>
+        /// 用户真实名称
+        /// </summary>
+        public string RealName { get; set; }
     }
 }

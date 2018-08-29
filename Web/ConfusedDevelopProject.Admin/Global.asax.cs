@@ -26,6 +26,8 @@ namespace ConfusedDevelopProject.Admin
             container.RegisterType<IRepository, Repository>();
             container.RegisterType<ILoginService, LoginService>();
             container.RegisterType<IUserContext, UserContext>();
+            container.RegisterType<ICommonService, CommonService>();
+            container.RegisterType<IUserService, UserService>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));//MVC注入
         }
     }
